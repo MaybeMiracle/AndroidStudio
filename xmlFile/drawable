@@ -1,0 +1,56 @@
+drawable-hdpi: store high dpi pictures, such as WVGA (480×800),FWVGA (480×854)
+drawable-mdpi: store middle dpi pictures, like HVGA (320×480)
+drawable-ldpi: store low dpi pictures, like QVGA (240×320）
+
+System will get corresponding pictures from these files according to machine's dpi.
+We can put completing pictures under these directories or get wanted pictures through custom xml file.
+eg.
+Defining shapge_1.xml under drawable.
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+<!--android:shape="oval" default graph is rectangle-->
+<gradient
+       android:startColor="#0055ff88"
+       android:centerColor="#0055ff00"
+       android:centerY="0.75"
+       android:endColor="#00320077"
+       android:angle="270" />
+
+
+How to let control show different pictures according to different status.
+We can control directly in the program or create xml file under drawable.
+button_back.xml under drawable
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+          <item android:state_pressed="false"android:drawable="@drawable/xxx1" />
+          <item android:state_pressed="true" android:drawable="@drawable/xxx2" />
+          <item android:state_focused="true" android:drawable="@drawable/xxx3" />
+          <item android:drawable="@drawable/xxx4" />
+</selector>
+
+Need to use file name of button_back.xml when defining control.
+<Button android:id="@+id/Button"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@drawable/button_add_x">
+</Button>
+<!--android:background="@drawable/button_back"point to button_back.xml file-->
+
+When our condition is not in the system's event types, for example, ImageView shows
+different pictures according to different values of a variable.
+if (condition1){  
+    image.setBackground(R.id.xxx1);  
+} 
+else if (condition2){  
+    image.setBackground(R.id.xxx2);  
+} 
+or create a xml file under res/drawable.
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+         <item android:maxLevel="9" android:drawable="@drawable/battery_0" />
+         <item android:maxLevel="39" android:drawable="@drawable/battery_1" />
+         <item android:maxLevel="69" android:drawable="@drawable/battery_2" />
+         <item android:maxLevel="89" android:drawable="@drawable/battery_3" />
+         <item android:maxLevel="100" android:drawable="@drawable/battery_4" />
+</level-list>
+Imagevies's src will be set up into a xml file by layout, when changing pictures in the program, 
+we just need to use imageview.getDrawable().setLevel(50);
+Android will select corresponding pictures according to level, like power of moblie.
