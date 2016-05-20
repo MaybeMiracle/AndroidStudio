@@ -1,0 +1,3 @@
+Android Studio 采用的是project和Moudles结构。
+project相当于eclipse中的workspace，而Moudle相当于eclipse中的project。所以一个project中可以包含多个Moudle。
+http://www.2cto.com/kf/201504/396134.html
