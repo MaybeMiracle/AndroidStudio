@@ -24,3 +24,4 @@ Android Studio目录结构
         AndroidManifest.xml：//App基本信息（Android管理文件） 
         ic_launcher-web.png：//App图标 
     build.gradle：//Module的Gradle构建脚本
+http://www.android100.org/html/201506/21/156412.html
